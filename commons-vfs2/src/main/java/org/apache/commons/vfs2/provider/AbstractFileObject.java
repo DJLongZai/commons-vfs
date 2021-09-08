@@ -1104,7 +1104,9 @@ public abstract class AbstractFileObject<AFS extends AbstractFileSystem> impleme
                 // VFS-210
                 // honor the new doListChildren contract
                 // return null;
-                throw new FileNotFolderException(fileName);
+                //throw new FileNotFolderException(fileName);
+                children = FileName.EMPTY_ARRAY;
+                return resolveFiles(children);
             }
             if (files.length == 0) {
                 // No children
